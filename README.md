@@ -1,13 +1,21 @@
-#组件#
+# 组件
 
+## 描述
 
-##执行
+* 使用browserify作为node前端加载及预编译jsx功能
+* 使用babelify作为es6-5工具
+* 使用watchify作为持续监听文件工具
 
+## 执行
 
-**build组件**
+### 加载包
 
-*npm run build-js
+	npm install
 
-**watch**
+### build组件
 
-*npm run watch-js
+	npm run build-js
+
+### watch
+
+	npm run watch-js
