@@ -1,0 +1,14 @@
+{
+	"private": true,
+	"version": "0.0.1",
+	"dependencies": {
+		"react": "0.12.2",
+		"browserify": "^9.0.8",
+		"babelify": "^6.0.2",
+		"watchify": "^3.1.0"
+	},
+	"scripts": {
+		"build-js": "browserify -t babelify -d src/image_upload/js/app.jsx -o build/bundle.js",
+		"watch-js": "watchify -t babelify -d src/image_upload/js/app.jsx -o build/bundle.js"
+	}
+}
