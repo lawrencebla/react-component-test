@@ -1,14 +1,22 @@
 {
-	"private": true,
-	"version": "0.0.1",
-	"dependencies": {
-		"react": "0.12.2",
-		"browserify": "^9.0.8",
-		"babelify": "^6.0.2",
-		"watchify": "^3.1.0"
-	},
-	"scripts": {
-		"build-js": "browserify -t babelify -d src/image_upload/js/app.jsx -o build/bundle.js",
-		"watch-js": "watchify -t babelify -d src/image_upload/js/app.jsx -o build/bundle.js"
-	}
+  "private": true,
+  "version": "0.0.1",
+  "dependencies": {
+    "react": "0.12.2",
+    "browserify": "^9.0.8",
+    "babelify": "^6.0.2",
+    "watchify": "^3.1.0",
+    "gulp": "^3.8.11"
+  },
+  "scripts": {
+    "build-js": "browserify -t babelify -d src/image_upload/js/app.jsx -o build/bundle.js",
+    "watch-js": "watchify -t babelify -d src/image_upload/js/app.jsx -o build/bundle.js",
+    "gulp": "gulp"
+  },
+  "devDependencies": {
+    "events": "^1.0.2",
+    "flux": "^2.0.1",
+    "keymirror": "^0.1.1",
+    "object-assign": "^2.0.0"
+  }
 }
