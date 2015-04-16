@@ -11,10 +11,17 @@ module.exports = {
     });
   },
 
-  setImageUploadSource(source) {
+  setImageUploadSource(source, clip) {
     PopAppDispatcher.dispatch({
       type: Action.SET_IMAGE_UPLOAD_SOURCE,
-      data: source
+      data: source,
+      clip: clip
+    });
+  },
+
+  clear() {
+    PopAppDispatcher.dispatch({
+      type: Action.CLEAR_IMAGE_UPLOAD
     });
   }
 };

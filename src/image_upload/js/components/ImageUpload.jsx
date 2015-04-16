@@ -2,6 +2,8 @@
 
 import React from 'react';
 
+import PopAppDispatcher from '../dispatcher/PopAppDispatcher.jsx';
+
 import ImageUploadActionCreator from '../actions/ImageUploadActionCreator.jsx';
 import ImageUploadStore from '../stores/ImageUploadStore.jsx';
 
@@ -12,7 +14,7 @@ const DEFAULT_WRAPPER_HEIGHT = 280;
 
 let ImageUpload = React.createClass({
 
-	statics: {
+	statics: {		
 		getImageClipSource(source, clipRatioWidth, clipRatioHeight, wrapperWidth, wrapperHeight) {
 			let canvas = document.createElement('canvas'),
 				img = new Image(),
@@ -77,24 +79,31 @@ let ImageUpload = React.createClass({
 	},
 
     componentWillMount () {
-    	ImageUploadActionCreator.setImageUploadSource(this.props.defaultImageSource);
+
+	    var that = this,
+		    	promise = new Promise(function(resolve) {
+		    	resolve();
+		    });
+	    promise.then(function() {
+	    	that._initImageUploadSource();
+	    });
+
     	ImageUploadStore.addChangeListener(this._onChange);
     },
 
-    componentDidMount () {
+    shouldComponentUpdate (nextProps, nextState) {
     	let that = this;
-		if(that.props.clip) {
-			let clipSource = ImageUpload.getImageClipSource(ImageUploadStore.getImageUploadUrl(),
-															that.props.clipRatioWidth,
-															that.props.clipRatioHeight,
-															that.props.wrapperWidth,
-															that.props.wrapperHeight);
-    		ImageUploadActionCreator.setImageUploadSource(clipSource);
+    	if(!that.props.isViewState && nextProps.isViewState) {
+    		if(!ImageUploadStore.hasImageSource()) {
+    			that._initImageUploadSource();
+    		}
+
     	}
+    	return true;
     },
 
     componentWillUnmount() {
-    	ImageUploadStore.removeChangeListener(this._onChange);
+		ImageUploadStore.removeChangeListener(this._onChange);
     },
 
 	render() {
@@ -114,7 +123,7 @@ let ImageUpload = React.createClass({
 			containerStyle["background-position"] = "100% 0";
 			containerStyle["background-size"] = "contain";
 		}
-		if(ImageUploadStore.getImageUploadSource().length < 1) {
+		if(ImageUploadStore.getImageUploadSource() && ImageUploadStore.getImageUploadSource().length < 1) {
 			popImageUploadTipStyle.display = "block";
 		}
 		return (
@@ -124,7 +133,7 @@ let ImageUpload = React.createClass({
 						<div>{that.props.tip}</div>
 						<div>请上传文件不大于2M的图片</div>
 					</div>
-					<input id="pop_image_upload_button" ref="pop_image_upload_button" type="file" disabled={that.props.isViewState	} style={buttonStyle} onChange={this._handlerChangeImageUpload} accept="images/*"/>
+					<input id="pop_image_upload_button" ref="pop_image_upload_button" type="file" disabled={that.props.isViewState} style={buttonStyle} onChange={this._handlerChangeImageUpload} accept="images/*"/>
 				</div>
 			</label>
 		);
@@ -162,6 +171,19 @@ let ImageUpload = React.createClass({
 				}
 			}
 		}
+	},
+
+	_initImageUploadSource() {
+		let that = this;
+    	ImageUploadActionCreator.setImageUploadSource(that.props.defaultImageSource);
+    	if(that.props.clip) {	    		
+			let clipSource = ImageUpload.getImageClipSource(ImageUploadStore.getImageUploadUrl(),
+															that.props.clipRatioWidth,
+															that.props.clipRatioHeight,
+															that.props.wrapperWidth,
+															that.props.wrapperHeight);
+    		ImageUploadActionCreator.setImageUploadSource(clipSource);
+    	}
 	}
 
 });

@@ -5,7 +5,7 @@ let assign = require('object-assign');
 
 import {Action} from '../constants/actionType/ImageUploadType.jsx';
 
-const CHANGE_EVENT = 'change';
+const CHANGE_EVENT = 'pop_imageupload_change';
 const DEFAULT_FILE_SIZE_MAX = 1024 * 1000 * 2;
 
 // Image Source
@@ -14,6 +14,11 @@ let _source;
 let _imageSizeMax;
 
 let ImageUploadStore = assign({}, EventEmitter.prototype, {
+
+	clear() {
+		_source = null;
+		_imageSizeMax = null;
+	},
 
 	init(props = {}) {
 		_imageSizeMax = props.imageSizeMax || DEFAULT_FILE_SIZE_MAX;
@@ -36,6 +41,10 @@ let ImageUploadStore = assign({}, EventEmitter.prototype, {
 
 	getImageUploadBackgroundStr() {
 		return "url(" + this.getImageUploadUrl() + ")";
+	},
+
+	hasImageSource() {
+		return _source && _source.length > 0;
 	},
 
 	// Listener Start
@@ -62,6 +71,10 @@ let ImageUploadStore = assign({}, EventEmitter.prototype, {
 			case Action.SET_IMAGE_UPLOAD_SOURCE:
 				ImageUploadStore.setImageUploadSource(action.data);
 				ImageUploadStore.emitChange();
+				break;
+
+			case Action.CLEAR_IMAGE_UPLOAD:
+				ImageUploadStore.clear();
 				break;
 
 			default:
