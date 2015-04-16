@@ -44,6 +44,7 @@ let ImageUpload = React.createClass({
 	mixins: [],
 
 	propTypes: {
+		tip: React.PropTypes.string,
 		isViewState: React.PropTypes.bool,
 		clip: React.PropTypes.bool,
 		clipRatioWidth: React.PropTypes.number,
@@ -56,6 +57,7 @@ let ImageUpload = React.createClass({
 
 	getDefaultProps() {
 		return {
+			tip: "",
 			isViewState: true,
 			defaultImageSource: "",
 			imageSizeMax: DEFAULT_IMAGE_SIZE_MAX,
@@ -105,15 +107,23 @@ let ImageUpload = React.createClass({
 			},
 			buttonStyle = {
 				opacity: 0
-			};
+			},
+			popImageUploadTipStyle = {};
 		if(!that.props.clip) {
 			containerStyle["background-origin"] = "border-box";
 			containerStyle["background-position"] = "100% 0";
 			containerStyle["background-size"] = "contain";
 		}
+		if(ImageUploadStore.getImageUploadSource().length < 1) {
+			popImageUploadTipStyle.display = "block";
+		}
 		return (
 			<label for="pop_image_upload_button">
 				<div className="pop-image-upload" style={containerStyle}>
+					<div style={popImageUploadTipStyle}>
+						<div>{that.props.tip}</div>
+						<div>请上传文件不大于2M的图片</div>
+					</div>
 					<input id="pop_image_upload_button" ref="pop_image_upload_button" type="file" disabled={that.props.isViewState	} style={buttonStyle} onChange={this._handlerChangeImageUpload} accept="images/*"/>
 				</div>
 			</label>

@@ -11,7 +11,8 @@ function render() {
 		defaultImageSource: TEST_IMAGE_DATA,
 		imageSizeMax: 1024 * 1000 * 2,
 		clip: false,
-		isViewState: false
+		isViewState: false,
+		tip: "添加园区照片"
 	};
 	React.render(
 		<ImageUpload {...props} />,
