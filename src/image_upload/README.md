@@ -59,7 +59,7 @@ ImageUploadActionCreator.clear();
 ```
 
 
-## props参数
+## props
 
 * **tip**: string
 无图片时的提示msg，默认为空
