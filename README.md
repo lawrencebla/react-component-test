@@ -18,7 +18,7 @@
 	or
 	npm run watch-image-upload
 
-编译完成后，本地打开[该文件](./image_upload/index.html)查看demo
+编译完成后，本地打开[该文件](../../image_upload/index.html)查看demo
 [DOC](./image_upload/README.md)
 
 ### ScrollPanel组件
@@ -27,5 +27,5 @@
 	or
 	npm run watch-scroll-panel
 
-[DEMO](./scroll_panel/index.html)
-[DOC](./scroll_panel/README.md)
+[DEMO](../../scroll_panel/index.html)
+[DOC](../../scroll_panel/README.md)
