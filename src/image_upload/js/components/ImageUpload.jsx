@@ -123,8 +123,10 @@ let ImageUpload = React.createClass({
 			containerStyle["background-position"] = "100% 0";
 			containerStyle["background-size"] = "contain";
 		}
-		if(ImageUploadStore.getImageUploadSource() && ImageUploadStore.getImageUploadSource().length < 1) {
+		if(!ImageUploadStore.getImageUploadSource() || ImageUploadStore.getImageUploadSource().length < 1) {
 			popImageUploadTipStyle.display = "block";
+		} else {
+			popImageUploadTipStyle.display = "none";
 		}
 		return (
 			<label for="pop_image_upload_button">

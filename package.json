@@ -9,14 +9,20 @@
     "gulp": "^3.8.11"
   },
   "scripts": {
-    "build-js": "browserify -t babelify -d src/image_upload/js/app.jsx -o build/bundle.js",
-    "watch-js": "watchify -t babelify -d src/image_upload/js/app.jsx -o build/bundle.js",
+    "build-image-upload": "browserify -t babelify -d src/image_upload/js/app.jsx -o src/image_upload/build/bundle.js",
+    "watch-image-upload": "watchify -t babelify -d src/image_upload/js/app.jsx -o src/image_upload/build/bundle.js",
+
+    "build-scroll-panel": "browserify -t babelify -d src/scroll_panel/js/app.jsx -o src/scroll_panel/build/bundle.js",
+    "watch-scroll-panel": "watchify -t babelify -d src/scroll_panel/js/app.jsx -o src/scroll_panel/build/bundle.js",
     "gulp": "gulp"
   },
   "devDependencies": {
     "events": "^1.0.2",
     "flux": "^2.0.1",
     "keymirror": "^0.1.1",
-    "object-assign": "^2.0.0"
+    "object-assign": "^2.0.0",
+    "react-infinite": "^0.3.4",
+    "react-infinite-scroll": "^0.1.5",
+    "reactify": "^1.1.0"
   }
 }

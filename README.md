@@ -12,10 +12,20 @@
 
 	npm install
 
-### build组件
+### 编译/监控ImageUpload测试组件
+	
+	npm run build-image-upload
+	or
+	npm run watch-image-upload
 
-	npm run build-js
+编译完成后，本地打开[该文件](image_upload/index.html)查看demo
+[DOC](image_upload/README.md)
 
-### watch
+### ScrollPanel组件
 
-	npm run watch-js
+	npm run build-scroll-panel
+	or
+	npm run watch-scroll-panel
+
+[DEMO](scroll_panel/index.html)
+[DOC](scroll_panel/README.md)
