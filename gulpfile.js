@@ -7,7 +7,8 @@ var gulp 		= require('gulp'),
 	less 		= require('gulp-less'),
 	gulp 		= require('gulp'),
    	uglify 		= require('gulp-uglify'),
-   	minifyCSS 	= require('gulp-minify-css');
+   	streamify	= require('gulp-streamify'),
+   	minifyCSS 	= require('gulp-minify-css'),
    	sourcemaps 	= require('gulp-sourcemaps');
 
    	_buildJsxFunc = function(basePath) {
@@ -15,6 +16,7 @@ var gulp 		= require('gulp'),
 	   		.transform(babelify)
 	   		.bundle()
 	   		.pipe(source('bundle.js'))
+	   		.pipe(streamify(uglify()))
 	   		.pipe(gulp.dest(basePath + '/build'))
 		    .pipe(reload({stream: true}));
    	},
