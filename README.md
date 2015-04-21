@@ -22,27 +22,47 @@
 #### build
 
 压缩合并jsx/less文件
-build所有文件	npm run build
-build子组件		npm run build-taskname
+
+build所有文件
+
+	npm run build
+
+build子组件	
+
+	npm run build-taskname
+
 
 #### watch
 
 在build的基础上进行文件监视，jsx/less文件修改时，自动更新相关压缩文件
-watch所有文件	npm run watch
-watch子组件		npm run watch-taskname
+
+watch所有文件
+
+	npm run watch
+
+watch子组件
+
+	npm run watch-taskname
+
 
 #### server
 
 在watch的基础上进行添加服务功能以及livereload功能，文件更新时浏览器自动刷新(需通过服务器地址访问)，执行命令后会自动打开浏览器
-server所有文件	npm run server
-server子组件		npm run server-taskname
+
+server所有文件
+
+	npm run server
+
+server子组件
+
+	npm run server-taskname
 
 
 ### ImageUpload测试组件
 
 taskname: image-upload
 
-build/watch完成后，本地打开[该文件](src/image_upload/index.html)查看demo；server时自动打开
+build/watch完成后，本地打开[该文件](src/image_upload/index.html)查看demo，server时自动打开。
 
 [DOC](src/image_upload/README.md)
 
@@ -50,7 +70,7 @@ build/watch完成后，本地打开[该文件](src/image_upload/index.html)查�
 
 taskname: scroll-panel
 
-build/watch完成后，本地打开[该文件](src/scroll_panel/index.html)查看demo；server时自动打开
+build/watch完成后，本地打开[该文件](src/scroll_panel/index.html)查看demo，server时自动打开。
 
 [DOC](src/scroll_panel/README.md)
 
@@ -58,6 +78,6 @@ build/watch完成后，本地打开[该文件](src/scroll_panel/index.html)查�
 
 taskname: group-panel
 
-build/watch完成后，本地打开[该文件](src/group_panel/index.html)查看demo；server时自动打开
+build/watch完成后，本地打开[该文件](src/group_panel/index.html)查看demo，server时自动打开。
 
 [DOC](src/group_panel/README.md)
