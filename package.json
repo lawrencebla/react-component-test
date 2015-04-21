@@ -1,28 +1,55 @@
 {
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "dependencies": {
     "react": "0.12.2",
     "browserify": "^9.0.8",
     "babelify": "^6.0.2",
-    "watchify": "^3.1.0",
     "gulp": "^3.8.11"
   },
   "scripts": {
-    "build-image-upload": "browserify -t babelify -d src/image_upload/js/app.jsx -o src/image_upload/build/bundle.js",
-    "watch-image-upload": "watchify -t babelify -d src/image_upload/js/app.jsx -o src/image_upload/build/bundle.js",
-
-    "build-scroll-panel": "browserify -t babelify -d src/scroll_panel/js/app.jsx -o src/scroll_panel/build/bundle.js",
-    "watch-scroll-panel": "watchify -t babelify -d src/scroll_panel/js/app.jsx -o src/scroll_panel/build/bundle.js",
-    "gulp": "gulp"
+    "//": "Main Task",
+    "build": "gulp build",
+    "watch": "gulp watch",
+    "server": "gulp server",
+    "//": "Image Upload Task",
+    "build-image-upload": "gulp build-image-upload",
+    "watch-image-upload": "gulp watch-image-upload",
+    "server-image-upload": "gulp server-image-upload",
+    "//": "Scroll Panel Task",
+    "build-scroll-panel": "gulp build-scroll-panel",
+    "watch-scroll-panel": "gulp watch-scroll-panel",
+    "server-scroll-panel": "gulp server-scroll-panel",
+    "//": "Group Panel Task",
+    "build-group-panel": "gulp build-group-panel",
+    "watch-group-panel": "gulp watch-group-panel",
+    "server-group-panel": "gulp server-group-panel"
   },
   "devDependencies": {
+    "browser-sync": "^2.6.4",
     "events": "^1.0.2",
     "flux": "^2.0.1",
+    "gulp-less": "^3.0.3",
+    "gulp-minify-css": "^1.1.0",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^1.2.0",
     "keymirror": "^0.1.1",
     "object-assign": "^2.0.0",
     "react-infinite": "^0.3.4",
     "react-infinite-scroll": "^0.1.5",
-    "reactify": "^1.1.0"
-  }
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "name": "react-component-test",
+  "description": "* 使用browserify作为node前端加载及预编译jsx功能\r * 使用babelify作为es6-5工具\r * 使用watchify作为持续监听文件工具",
+  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lawrencebla/react-component-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lawrencebla/react-component-test/issues"
+  },
+  "homepage": "https://github.com/lawrencebla/react-component-test"
 }

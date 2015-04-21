@@ -1,4 +1,4 @@
-# 上传图片选择组件
+# 通用分组组件
 
 ## 描述
 
@@ -17,45 +17,45 @@
 
 ### 引入文件
 
-* js/actions/ImageUploadActionCreator.jsx
-* js/components/ImageUpload.jsx
-* js/constants/ImageUploadType.jsx
-* js/stores/ImageUploadStore.jsx
+* js/actions/GroupPanelActionCreator.jsx
+* js/components/GroupPanel.jsx
+* js/constants/GroupPanelType.jsx
+* js/stores/GroupPanelStore.jsx
 
 ### 加入组件
 
-* Require ImageUpload
+* Require GroupPanel
 ```
-import ImageUpload from './ImageUpload.jsx';
+import GroupPanel from './GroupPanel.jsx';
 ```
 
 * 使用(参数见[这里](#props))
 ```
-<ImageUpload {...imageProps} />
+<GroupPanel {...imageProps} />
 ```
 
 ### 获取图片data(base64)
 
-* Require ImageUploadStroe
+* Require GroupPanelStroe
 ```
-import ImageUploadStore from '../stores/ImageUploadStore.jsx';
+import GroupPanelStore from '../stores/GroupPanelStore.jsx';
 ```
 
 * 使用
 ```
-ImageUploadStore.getImageUploadSource();
+GroupPanelStore.getGroupPanelSource();
 ```
 
 ### 清除图片data
 
-* Require ImageUploadStroe
+* Require GroupPanelStroe
 ```
-import ImageUploadActionCreator from '../actions/ImageUploadActionCreator.jsx';
+import GroupPanelActionCreator from '../actions/GroupPanelActionCreator.jsx';
 ```
 
 * 使用
 ```
-ImageUploadActionCreator.clear();
+GroupPanelActionCreator.clear();
 ```
 
 
